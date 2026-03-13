@@ -7,6 +7,29 @@ import json
 import subprocess
 from pathlib import Path
 
+def send_file(url, file_path, field_name='file', extra_data=None):
+    file_path = Path(file_path)
+    if not file_path.is_file():
+        raise FileNotFoundError(f"File not found: {file_path}")
+
+    files = {field_name: (file_path.name, open(file_path, 'rb'))}
+    data = extra_data or {}
+    try:
+        resp = requests.post(url, files=files, data=data)
+        resp.raise_for_status()
+        return resp
+    finally:
+        files[field_name][1].close()
+
+def get(url, timeout=10):
+    resp = requests.get(url, stream=True, timeout=timeout)
+    try:
+        resp.raise_for_status()
+        return resp
+    finally:
+        resp.close()
+
+
 def download_file(url, local_filename):
     local_filename = os.path.join(os.path.dirname(__file__), local_filename)
     try:
