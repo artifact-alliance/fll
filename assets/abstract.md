@@ -1,11 +1,4 @@
 # Abstract
 
 There are many problems in archaeology. Some have been solved, but others, not so much. One big problem facing archeology is that labeling artifacts can take a lot of time. There are about ~25,000 artifacts found at a single site, with ~95% of them being tiny, stone, flakes. Labeling can take hours to days, and one mistake makes you start all over again. We, the FLL team "Artifact Alliance", thought there had to be a better way to label these artifacts. So we created Ancient Vision, a state of the art scanner that can label artifacts very quickly and store the data automatically to the Cloud. Ancient Vision is a system designed to digitize and automate the labeling process with speed and accuracy. It consists of an app, which archeologists can easily use, a database and the actual scanner.
-Our solution is more than just a scanner—it is an integrated ecosystem. Ancient Vision consists of:
-
-A hardware scanner that captures artifact information quickly and reliably,
-A software platform that controls the scanning process,
-
-A secured and cloud-based data system that stores, sorts, and retrieves artifact metadata.
-
-This digital infrastructure enables seamless integration with other archaeological tools. For example, reconstruction software could use our databases to digitally piece together broken artifacts. Using Ancient Vision, archeologists can benefit by having data analysis time saved, human error reduced and the eliminated need for manual labeling. This scanner can benefit around ~51,000 archeologists and museum specialists in the U.S. alone, and many more worldwide.
+Our solution is more than just a scanner—it is an integrated ecosystem. Ancient Vision consists of; a hardware scanner that captures artifact information quickly and reliably, a software platform that controls the scanning process, and a secured and cloud-based data system that stores, sorts, and retrieves artifact metadata. This digital infrastructure enables seamless integration with other archaeological tools. For example, reconstruction software could use our databases to digitally piece together broken artifacts. Using Ancient Vision, archeologists can benefit by having data analysis time saved, human error reduced and the eliminated need for manual labeling. This scanner can benefit around ~51,000 archeologists and museum specialists in the U.S. alone, and many more worldwide.

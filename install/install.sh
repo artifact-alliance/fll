@@ -29,7 +29,6 @@ rm -f -- title.png >/dev/null 2>&1
 wget https://artifact-alliance.vercel.app/install/click.mp3 -nv -q
 wget https://artifact-alliance.vercel.app/install/button.png -nv -q
 wget https://artifact-alliance.vercel.app/install/GUI.png -nv -q
-wget https://artifact-alliance.vercel.app/install/title.png -nv -q
 cd
 pip install -r requierments.txt --break-system-packages --disable-pip-version-check -qq
 echo "Installation complete! The dashboard is hosted at http://localhost:1234"
