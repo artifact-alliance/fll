@@ -1,6 +1,6 @@
 #!/bin/bash
 sudo apt install  -qq -y figlet
-figlet "ANCIENT VISION"
+figlet "Ancient Vision"
 echo "The future of archeological databases and scanning software"
 echo "By Ethan Li"
 echo "MIT License"

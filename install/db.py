@@ -58,6 +58,15 @@ def download_file(url, local_filename):
 
 app = Flask(__name__)
 
+def fetch_files(website_file_root, file_list):
+    for file in file_list:
+        url = f"{website_file_root}/{file}"
+        try:
+            download_file(url, file)
+            print(f"Downloaded {file} successfully.")
+        except Exception as e:
+            print(f"Failed to download {file}: {e}")
+
 @app.route('/upload/<directory>', methods=['GET', 'POST'])
 def upload(directory):
     if request.method == 'POST':
