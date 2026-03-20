@@ -31,7 +31,7 @@ wget https://artifact-alliance.vercel.app/install/button.png -nv -q
 wget https://artifact-alliance.vercel.app/install/GUI.png -nv -q
 cd
 pip install -r requierments.txt --break-system-packages --disable-pip-version-check -qq
-git clone https://github.com/lakinduakash/linux-wifi-hotspot
+git clone --quiet https://github.com/lakinduakash/linux-wifi-hotspot
 cd linux-wifi-hotspot
 make
 sudo make install
