@@ -34,7 +34,7 @@ pip install -r requierments.txt --break-system-packages --disable-pip-version-ch
 rm linux-wifi-hotspot -r >/dev/null 2>&1
 git clone --quiet https://github.com/lakinduakash/linux-wifi-hotspot
 cd linux-wifi-hotspot
-make
+make --silent
 sudo make install
 cd
 echo "Installation complete! The dashboard is hosted at http://localhost:1234"
