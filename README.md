@@ -6,4 +6,4 @@ Installation for Scanner:
 ```wget -qO- https://raw.githubusercontent.com/eli3162/fll/refs/heads/main/install/install.sh | sudo bash```
 
 Run website:
-'''git clone https://github.com/eli3162/fll.git && python fll/app.py'''
+```git clone https://github.com/eli3162/fll.git && python fll/app.py```
