@@ -6,6 +6,23 @@
         Metadata
     </title>
     <style>
+        @font-face {
+            font-family: 'Mona Sans';
+            src:
+                url('/assets/font.woff2') format('woff2 supports variations'),
+                url('/assets/font.woff2') format('woff2-variations');
+            font-weight: 200 900;
+            font-stretch: 75% 125%;
+        }
+
+        @font-face {
+            font-family: 'Hubot Sans';
+            src:
+                url('/assets/font.woff2') format('woff2 supports variations'),
+                url('/assets/font.woff2') format('woff2-variations');
+            font-weight: 200 900;
+            font-stretch: 75% 125%;
+        }
         :root {
             --table-header-color: rgb(237, 195, 129);
         }
@@ -67,7 +84,7 @@
             min-width: 600px;
             margin: 0 auto;
             border-collapse: collapse;
-            font-family: Arial, sans-serif;
+            font-family: 'Mona Sans', 'Hubot Sans';
             font-size: 0.5em;
             table-layout: auto;
         }
