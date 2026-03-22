@@ -10,19 +10,6 @@ scanner_ip = '71.230.251.141'
 
 passcode = "password"
 
-def md5hash(passcode):
-	res = hashlib.md5(passcode.encode())
-	return res.hexdigest()
-
-hashed_passcode = md5hash(passcode)
-
-def is_ip_up(ip):
-    try:
-        host = ping(ip, count=1, timeout=2)
-        return host.is_alive
-    except:
-        return False
-
 def parse(data):
     marker = "#path.fll-DATA"
 
@@ -99,54 +86,7 @@ def serve_artifact(filename):
 
 @app.route('/models/<filename>')
 def serve_model(filename):
-	return send_from_directory('assets', filename)
-
-@app.route('/generate_metadata/<filename>')
-def generate_metadata(filename):
-	data = {
-		"Name": filename,
-		"Description": None,
-		"Code": "123456789",
-		"UUID": str(uuid.uuid4()),
-		"pointers": {
-			"arobject": "/assets/" + filename + ".arobject",
-			"model": "/assets/" + filename + ".obj",
-			"thumbnail": "/assets/" + filename + ".png",
-			"metadata": "/assets/" + filename + "_metadata.json"
-		}
-	}
-
-	Path('assets').mkdir(parents=True, exist_ok=True)
-	metadata_path = os.path.join(os.path.dirname(__file__), 'assets', f"{filename}.json")
-	with open(metadata_path, 'w') as f:
-		json.dump(data, f)
-
-	return jsonify(data)
-
-@app.route("/metadata/<filename>/<dict>")
-def fetch_metadata(filename, dict):
-	with open(os.path.join(os.path.dirname(__file__), 'assets', filename + ".json"), 'r') as f:
-		data = json.load(f)
-	return jsonify(data.get(dict))
-
-@app.route("/metadata/<filename>/<dict>/<part>")
-def fetch_dict(filename, dict, part):
-	with open(os.path.join('assets', filename + ".json"), 'r') as f:
-		data = json.load(f)
-	return jsonify(data.get(dict, {}).get(part))
-
-@app.route('/logs')
-def get_logs():
-	log_path = os.path.join(os.path.dirname(__file__), 'tmp/app.log')
-	with open(log_path, 'r') as f:
-		log_content = f.read()
-	return f"<pre>{log_content}</pre>"
-
-@app.route('/ip')
-def get_ip():
-	response = requests.get('https://api.ipify.org?format=json')
-	ip_data = response.json()
-	return ip_data
+	return send_from_directory('models', filename)
 
 @app.route('/convert', methods=['POST', 'GET'])
 def parse_file():
@@ -165,44 +105,11 @@ def parse_file():
 			content = file.read()
 		return content
 
-@app.route('/plan')
-def plan():
-	return 'https://mermaid.ai/d/f8036d0a-5254-49a9-95b5-142bff42174c'
-
 @app.route('/dashboard')
 def dashboard():
 	with open('dashboard.html', 'r') as file:
 		content = file.read()
 	return content
-
-@app.route('/setip/<ip>')
-def set_ip(ip):
-	global scanner_ip
-	scanner_ip = ip
-	return f"Scanner IP set to {ip}"
-
-@app.route('/scanner_online')
-def scanner_status():
-	global scanner_ip
-	if is_ip_up(scanner_ip):
-		return "Scanner is online at " + scanner_ip
-	else: 
-		return "Scanner is offline but was last seen at " + scanner_ip
-
-@app.route('/scanner_content')
-def scanner_content():
-	global scanner_ip
-	content = f"""
-Scanner IP: {scanner_ip}
-Scanner Status: {"Online" if is_ip_up(scanner_ip) else "Offline"}
-Scanner Name: ancientvision
-Version: 4
-	"""
-	return content
-
-@app.route('/passcode')
-def get_passcode():
-	return hashed_passcode
 
 @app.route('/login')
 def login():

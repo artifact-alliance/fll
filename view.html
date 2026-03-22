@@ -37,7 +37,6 @@
             content: "";
             position: fixed;
             inset: 0;
-            background-image: url('/assets/');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -146,7 +145,7 @@
 </head>
 <body>
 
-    <script type="module" src="/model.js"></script>
+    <script type="module" src="/assets/model.js"></script>
     <div class="split">
         <div class="left">
             <model-viewer id="artifactViewer" alt="Artifact" src="" ar environment-image="/assets/room.hdr" poster="" shadow-intensity="1" camera-controls touch-action="pan-y" auto-rotate camera-controls skybox-image="/assets/room.hdr"></model-viewer>
@@ -223,7 +222,7 @@
             });
     } else {
         console.warn('No pathname provided; using default asset');
-        viewer.src = '/assets/rock.glb';
+        viewer.src = '/models/rock.glb';
     }
 
     function getMetadataPath() {
