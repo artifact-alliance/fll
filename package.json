@@ -3,5 +3,27 @@
     "@craco/craco": "^7.1.0",
     "@tailwindcss/cli": "^4.2.2",
     "tailwindcss": "^4.2.2"
-  }
+  },
+  "name": "fll",
+  "version": "1.0.0",
+  "description": "Abstract:",
+  "main": "index.js",
+  "devDependencies": {
+    "jest": "^27.5.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eli3162/fll.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/eli3162/fll/issues"
+  },
+  "homepage": "https://github.com/eli3162/fll#readme"
 }
