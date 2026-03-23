@@ -18,12 +18,25 @@
     "type": "git",
     "url": "git+https://github.com/eli3162/fll.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "python",
+    "open-source",
+    "flask",
+    "opensource",
+    "html5",
+    "robotics",
+    "web-app",
+    "web-application",
+    "archeology",
+    "first-robotics-competition",
+    "fll",
+    "first-lego-league"
+  ],
+  "author": "Ethan Li",
   "license": "MIT",
   "type": "commonjs",
   "bugs": {
     "url": "https://github.com/eli3162/fll/issues"
   },
-  "homepage": "https://github.com/eli3162/fll#readme"
+  "homepage": "https://artifact-alliance.vercel.app/"
 }
