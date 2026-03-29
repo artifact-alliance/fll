@@ -1,5 +1,6 @@
 #!/bin/bash
-sudo apt install  -qq -y figlet >/dev/null 2>&1
+echo 'install logs:' > install.log
+sudo apt install  -qq -y figlet >> install.log
 figlet "Ancient Vision"
 echo "The future of archeological databases and scanning software"
 echo "By Ethan Li"
@@ -7,46 +8,46 @@ echo "MIT License"
 cd
 echo 'Installation Logs:'
 echo 'Checking for and removing old install files'
-rm -f -- vision.py >/dev/null 2>&1
-rm -f -- DRV8825.py >/dev/null 2>&1
-rm -f -- service.py >/dev/null 2>&1
-rm -f -- stop.py >/dev/null 2>&1
-rm -f -- service.sh >/dev/null 2>&1
-rm -f -- requierments.txt >/dev/null 2>&1
-rm -f -- index.html >/dev/null 2>&1
+rm -f -- vision.py >> install.log
+rm -f -- DRV8825.py >> install.log
+rm -f -- service.py >> install.log
+rm -f -- stop.py >> install.log
+rm -f -- service.sh >> install.log
+rm -f -- requierments.txt >> install.log
+rm -f -- index.html >> install.log
 echo 'All old install files removed, pulling new ones'
-wget https://raw.githubusercontent.com/eli3162/fll/refs/heads/main/install/vision.py -nv -q
-wget https://raw.githubusercontent.com/eli3162/fll/refs/heads/main/install/DRV8825.py -nv -q
-wget https://raw.githubusercontent.com/eli3162/fll/refs/heads/main/install/service.py -nv -q
-wget https://raw.githubusercontent.com/eli3162/fll/refs/heads/main/install/stop.py -nv -q
-wget https://raw.githubusercontent.com/eli3162/fll/refs/heads/main/install/service.sh -nv -q
-wget https://raw.githubusercontent.com/eli3162/fll/refs/heads/main/install/requierments.txt -nv -q
-wget https://raw.githubusercontent.com/eli3162/fll/refs/heads/main/install/index.html -nv -q
+wget https://raw.githubusercontent.com/eli3162/fll/refs/heads/main/install/vision.py >> install.log
+wget https://raw.githubusercontent.com/eli3162/fll/refs/heads/main/install/DRV8825.py >> install.log
+wget https://raw.githubusercontent.com/eli3162/fll/refs/heads/main/install/service.py >> install.log
+wget https://raw.githubusercontent.com/eli3162/fll/refs/heads/main/install/stop.py >> install.log
+wget https://raw.githubusercontent.com/eli3162/fll/refs/heads/main/install/service.sh >> install.log
+wget https://raw.githubusercontent.com/eli3162/fll/refs/heads/main/install/requierments.txt >> install.log
+wget https://raw.githubusercontent.com/eli3162/fll/refs/heads/main/install/index.html >> install.log
 echo 'Main Files pulled; setting service.sh as executable'
 chmod +x service.sh
-rm images -r >/dev/null 2>&1
+rm images -r >> install.log
 mkdir images && cd images
-rm -f -- click.mp3 >/dev/null 2>&1
-rm -f -- button.png >/dev/null 2>&1
-rm -f -- GUI.png >/dev/null 2>&1
-rm -f -- title.png >/dev/null 2>&1
+rm -f -- click.mp3 >> install.log
+rm -f -- button.png >> install.log
+rm -f -- GUI.png >> install.log
+rm -f -- title.png >> install.log
 echo 'Downloading HTML5 Assets'
-wget https://raw.githubusercontent.com/eli3162/fll/refs/heads/main/install/click.mp3 -nv -q
-wget https://raw.githubusercontent.com/eli3162/fll/refs/heads/main/install/button.png -nv -q
-wget https://raw.githubusercontent.com/eli3162/fll/refs/heads/main/install/GUI.png -nv -q
-wget https://raw.githubusercontent.com/eli3162/fll/refs/heads/main/install/title.png -nv -q
+wget https://raw.githubusercontent.com/eli3162/fll/refs/heads/main/install/click.mp3 >> install.log
+wget https://raw.githubusercontent.com/eli3162/fll/refs/heads/main/install/button.png >> install.log
+wget https://raw.githubusercontent.com/eli3162/fll/refs/heads/main/install/GUI.png >> install.log
+wget https://raw.githubusercontent.com/eli3162/fll/refs/heads/main/install/title.png >> install.log
 cd
 echo 'Installing requiered python packages'
-pip install -r requierments.txt --break-system-packages --disable-pip-version-check -qq
-echo 'Installing linux-wifi-hotspot'
-rm linux-wifi-hotspot -r >/dev/null 2>&1
+pip install -r requierments.txt --break-system-packages --disable-pip-version-check >> install.log
+echo 'Installing linux-wifi-hotspot' 
+rm linux-wifi-hotspot -r >> install.log
 echo 'Cloning Repository'
-git clone --quiet https://github.com/lakinduakash/linux-wifi-hotspot.git
+git clone https://github.com/lakinduakash/linux-wifi-hotspot.git >> install.log
 cd linux-wifi-hotspot
 echo 'Building App'
-make --silent >/dev/null 2>&1
-sudo make install >/dev/null 2>&1
-systemctl enable create_ap >/dev/null 2>&1
+make >> install.log
+sudo make install >> install.log
+systemctl enable create_ap >> install.log
 cd
 echo "Installation complete! The dashboard is hosted at http://localhost:1234"
 echo "Set service.sh to run on startup!"
