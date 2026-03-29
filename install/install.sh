@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo apt install  -qq -y figlet
+sudo apt install  -qq -y figlet >/dev/null 2>&1
 figlet "Ancient Vision"
 echo "The future of archeological databases and scanning software"
 echo "By Ethan Li"
@@ -44,9 +44,9 @@ echo 'Cloning Repository'
 git clone --quiet https://github.com/lakinduakash/linux-wifi-hotspot.git
 cd linux-wifi-hotspot
 echo 'Building App'
-make --silent
-sudo make install
-systemctl enable create_ap
+make --silent >/dev/null 2>&1
+sudo make install >/dev/null 2>&1
+systemctl enable create_ap >/dev/null 2>&1
 cd
 echo "Installation complete! The dashboard is hosted at http://localhost:1234"
 echo "Set service.sh to run on startup!"
