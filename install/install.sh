@@ -16,13 +16,13 @@ rm -f -- service.sh >> install.log
 rm -f -- requierments.txt >> install.log
 rm -f -- index.html >> install.log
 echo 'All old install files removed, pulling new ones'
-wget https://artifactalliance.com/install/vision.py >> install.log
-wget https://artifactalliance.com/install/DRV8825.py >> install.log
-wget https://artifactalliance.com/install/service.py >> install.log
-wget https://artifactalliance.com/install/stop.py >> install.log
-wget https://artifactalliance.com/install/service.sh >> install.log
-wget https://artifactalliance.com/install/requierments.txt >> install.log
-wget https://artifactalliance.com/install/index.html >> install.log
+wget https://artifactalliance.com/install/vision.py -4 >> install.log
+wget https://artifactalliance.com/install/DRV8825.py -4 >> install.log
+wget https://artifactalliance.com/install/service.py -4 >> install.log
+wget https://artifactalliance.com/install/stop.py -4 >> install.log
+wget https://artifactalliance.com/install/service.sh -4 >> install.log
+wget https://artifactalliance.com/install/requierments.txt -4 >> install.log
+wget https://artifactalliance.com/install/index.html -4 >> install.log
 echo 'Main Files pulled; setting service.sh as executable'
 chmod +x service.sh
 rm images -r >> install.log
@@ -32,10 +32,10 @@ rm -f -- button.png >> install.log
 rm -f -- GUI.png >> install.log
 rm -f -- title.png >> install.log
 echo 'Downloading HTML5 Assets'
-wget https://artifactalliance.com/install/click.mp3 >> install.log
-wget https://artifactalliance.com/install/button.png >> install.log
-wget https://artifactalliance.com/install/GUI.png >> install.log
-wget https://artifactalliance.com/install/title.png >> install.log
+wget https://artifactalliance.com/install/click.mp3 -4 >> install.log
+wget https://artifactalliance.com/install/button.png -4 >> install.log
+wget https://artifactalliance.com/install/GUI.png -4 >> install.log
+wget https://artifactalliance.com/install/title.png -4 >> install.log
 cd
 echo 'Installing requiered python packages'
 pip install -r requierments.txt --break-system-packages --disable-pip-version-check >> install.log
