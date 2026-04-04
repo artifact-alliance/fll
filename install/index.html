@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scanner Dashboard</title>
+    <script src="/images/tailwind.js"></script>
     <style>
         html, body {
             height: 100%;
@@ -30,18 +31,15 @@
             z-index: 2;
             left: 25%;
             right: 25%;
-            padding-top: 320px;
+            padding-top: 26%;
         }
         .stopbutton {
             position: absolute;
             top: 10px;
-            left: 10px;
-            width: 50%;
             height: auto;
             cursor: pointer;
             z-index: 2;
-            left: 48%;
-            padding-top: 530px;
+            padding-top: 50%;
         }
         .title {
             position: absolute;
@@ -53,18 +51,18 @@
             z-index: 2;
             left: 25%;
             right: 25%;
-            padding-top: 120px;
+            padding-top: 10%;
         }
     </style>
     </head>
     <body>
-        <a href="https://artifact-alliance.vercel.app"><img class="title" src="/images/title.png" alt=""></a>
-        <a id="scanLink" href="/scan/"><img class="button" src="/images/button.png" alt="Start Scanning!"></a>
+        <img class="title" src="/images/title.png" alt="">
+        <a id="scanLink" href="/scan/"><img class="button hover:size-11/12 shadow-lg" src="/images/button.png" alt="Start Scanning!"></a>
         <img class="background" src="/images/GUI.png" alt="">
         <audio id="clickSound" preload="auto">
             <source src="/images/click.mp3" type="audio/mpeg">
         </audio>
-        <a href="/stop/"><p>STOP!</p></a>
+        <big><big><big><big><big><a href="/stop/"><h2 class="font-medium text-center stopbutton hover:font-bold hover:underline text-red-500 hover:text-red-700 left-[47%]">STOP!</h2></a></big></big></big></big></big>
         <script>
             (function(){
                 const clickSound = document.getElementById('clickSound');

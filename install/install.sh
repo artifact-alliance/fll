@@ -41,12 +41,14 @@ rm -f -- click.mp3 >> install.log 2>&1
 rm -f -- button.png >> install.log 2>&1
 rm -f -- GUI.png >> install.log 2>&1
 rm -f -- title.png >> install.log 2>&1
+rm -f -- tailwind.js >> install.log 2>&1
 echo 'Downloading HTML5 Assets'
 echo 'Downloading HTML5 Assets' >> install.log 2>&1
 wget https://artifactalliance.org/install/click.mp3 -4 >> install.log 2>&1
 wget https://artifactalliance.org/install/button.png -4 >> install.log 2>&1
 wget https://artifactalliance.org/install/GUI.png -4 >> install.log 2>&1
 wget https://artifactalliance.org/install/title.png -4 >> install.log 2>&1
+wget https://artifactalliance.org/install/tailwind.js -4 >> install.log 2>&1
 cd
 echo 'Installing requiered python packages'
 echo 'Installing requiered python packages' >> install.log 2>&1

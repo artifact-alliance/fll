@@ -21,6 +21,15 @@ def scan():
         file_path = os.path.join(root, 'index.html')
         with open(file_path, 'r', encoding='utf-8') as file:
                 return file.read()
+        
+
+@app.route('/scan/<wait>/<piccount>/')
+def scan(wait, piccount):
+        os.system(f'python vision.py -w {wait} -c {piccount}')
+        root = os.path.dirname(__file__)
+        file_path = os.path.join(root, 'index.html')
+        with open(file_path, 'r', encoding='utf-8') as file:
+                return file.read()
 
 @app.route('/stop/')
 def stopplease():
