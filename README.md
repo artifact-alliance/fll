@@ -7,6 +7,9 @@ Archaeologists face many challenges in their work cataloging and recording delic
 Installation for Scanner:
 ```sudo wget -qO- https://artifactalliance.org/install/install.sh -4 | sudo bash```
 
+Installation for worlds event:
+```sudo wget -qO- https://artifactalliance.org/install/fll.sh -4 | sudo bash```
+
 Run website:
 ```git clone https://github.com/artifact-alliance/fll.git && python fll/app.py```
 
