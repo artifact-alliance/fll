@@ -1,5 +1,5 @@
 from flask import *
-import requests
+import os
 
 app = Flask(__name__)
 
@@ -19,36 +19,54 @@ def fetchfolderfolderindex(folder1, folder2):
 
 @app.route('/<file1>')
 def fetchfile(file1):
-	try:
+	if "." in file1:
+		try:
+			root = os.path.dirname(__file__)
+			file_path = os.path.join(root, file1)
+			with open(file_path, 'r', encoding='utf-8') as file:
+				return file.read()
+		except Exception as e:
+			print(f"Error: {e}")
+			return send_from_directory('', file1, as_attachment=False)
+	else:
 		root = os.path.dirname(__file__)
-		file_path = os.path.join(root, file1)
+		file_path = os.path.join(root, file1, 'index.html')
 		with open(file_path, 'r', encoding='utf-8') as file:
 			return file.read()
-	except Exception as e:
-		print(f"Error: {e}")
-		return send_from_directory('', file1, as_attachment=False)
       
 @app.route('/<folder1>/<file1>')
 def fetchfolderfile(folder1, file1):
-	try:
+	if "." in file1:
+		try:
+			root = os.path.dirname(__file__)
+			file_path = os.path.join(root, folder1, file1)
+			with open(file_path, 'r', encoding='utf-8') as file:
+				return file.read()
+		except Exception as e:
+			print(f"Error: {e}")
+			return send_from_directory(folder1, file1, as_attachment=False)
+	else:
 		root = os.path.dirname(__file__)
-		file_path = os.path.join(root, folder1, file1)
+		file_path = os.path.join(root, folder1, file1, 'index.html')
 		with open(file_path, 'r', encoding='utf-8') as file:
 			return file.read()
-	except Exception as e:
-		print(f"Error: {e}")
-		return send_from_directory(folder1, file1, as_attachment=False)
     
 @app.route('/<folder1>/<folder2>/<file1>')
 def fetchfolderfolderfile(folder1, folder2, file1):
-	try:
+	if "." in file1:
+		try:
+			root = os.path.dirname(__file__)
+			file_path = os.path.join(root, folder1, folder2, file1)
+			with open(file_path, 'r', encoding='utf-8') as file:
+				return file.read()
+		except Exception as e:
+			print(f"Error: {e}")
+			return send_from_directory(folder1 + '/' + folder2, file1, as_attachment=False)
+	else:
 		root = os.path.dirname(__file__)
-		file_path = os.path.join(root, folder1, folder2, file1)
+		file_path = os.path.join(root, folder1, folder2, file1, 'index.html')
 		with open(file_path, 'r', encoding='utf-8') as file:
 			return file.read()
-	except Exception as e:
-		print(f"Error: {e}")
-		return send_from_directory(folder1 + '/' + folder2, file1, as_attachment=False)
       
 @app.route('/')
 def fetchindex():
