@@ -9,7 +9,7 @@
       "type": "image/png"
     },
     {
-      "src": "/favicon.png",
+      "src": "/assets/512x512_app-icon.png",
       "sizes": "512x512",
       "type": "image/png"
     }
